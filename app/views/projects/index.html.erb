@@ -1,0 +1,6 @@
+<h1>Project list</h1>
+<ul>
+  <% @projects&.each { |p| %>
+    <li><%= link_to p.name, intro_project_path(p) %> &nbsp; (by <%= p.user.fullname %>, <%= p.created_at %>)</li>
+  <% } %>
+</ul>

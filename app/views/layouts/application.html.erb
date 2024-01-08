@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guides</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="navbar-brand">
+            <%= link_to 'GUIDES:', root_path %>
+              The General and Universal Image Data Evaluation System
+          </div>
+          <% if user_signed_in? %>
+            <div>
+              <%= link_to 'admin', admin_user_path(current_user),
+                  class: 'btn btn-sm btn-primary cursor-pointer' %>
+              <%= link_to 'profile', edit_user_registration_path,
+                  class: 'btn btn-sm btn-success cursor-pointer' %>
+              <%= link_to 'logout', destroy_user_session_path, method: :delete,
+                  class: 'btn btn-sm btn-danger cursor-pointer' %>
+            </div>
+          <% else %>
+            <div>
+              <%= link_to 'login', new_user_session_path,
+                  class: 'btn btn-sm btn-primary cursor-pointer' %>
+              <%= link_to 'sign up', new_user_registration_path,
+                  class: 'btn btn-sm btn-success cursor-pointer' %>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+    <% if notice %>
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <%= notice %>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= alert %>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+
+    <div class="container my-3">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<h1>Emotional Evaluation: Results</h1>
+<div data-controller="projects-result" class="col-12 mb-3">
+  <div class="row">
+    <div class="col-12 mb-3" id="results">
+      Blue icons are your choice, and red ones are the average 
+      values over everyone's choice for each item.
+    </div>
+    <div class="row">
+      <div class="col-10 col-md-10">
+        <canvas id="scatterPlot" style="background: lightyellow;"></canvas>
+      </div>
+      <div class="col-2">
+        <div class="row">
+          <% @icons.each_with_index {|icon,i| %>
+            <div class="col-12 text-center my-1">
+              <%= image_tag icon, width: '24pt',
+                      class: 'mb-1' %><br />
+              <%= image_tag 'poster.gif',
+                      class: 'col-12', id: "poster#{i}" %>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="row my-5">
+      <div class="col-6 text-left">
+        <%= link_to 'Try again', eval_project_path, class: 'btn btn-primary' %>
+      </div>
+      <div class="col-6 text-end">
+        <%= link_to 'End', intro_project_path, class: 'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+</div>
+

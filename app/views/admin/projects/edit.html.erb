@@ -1,0 +1,68 @@
+<h1>Edit the project</h1>
+<div>
+<%= form_with model: [:admin, @project] do |f| %>
+  <table class= 'table table-sm table-striped' >
+    <tr>
+      <td class='col-1' ><%= f.label 'Name' %></td>
+      <td class='col-11' ><%= f.text_field :name, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label 'Desc' %></td>
+      <td><%= f.text_area :description, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label 'X-axis' %></td>
+      <td><%= f.text_field :x_axis, class: 'form-control' %></td>
+    </tr>
+    <tr>
+      <td><%= f.label 'Y-axis' %></td>
+      <td><%= f.text_field :y_axis, class: 'form-control' %></td>
+    </tr>
+  </table>
+<%= f.submit 'Update', class: 'btn btn-primary' %>
+<% end %>
+
+</div>
+<h2>Images</h2>
+<% if @images&.length > 0 %>
+<h3>Image list</h3>
+<div>
+  <table class='table table-sm table-striped'>
+    <tr><th class='col-11'>URL</th><th class='col-1'>Delete</th></tr>
+    <% @images&.each { |i| %>
+      <tr>
+        <td><%= i.url %></td>
+        <td><%= button_to 'delete', admin_image_path(i),
+                  class: 'btn btn-sm btn-secondary', method: :delete, 
+                  data: { turbo_confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% } %>
+  </table>
+</div>
+<% else %>
+  <div class="my-3">Empty</div>
+<% end %>
+
+<h2>Add an image</h2>
+<div>
+  <%= form_with model: [:admin, Image.new] do |f| %>
+    <table class= 'table table-sm table-striped' >
+      <tr>
+        <td class='col-1' ><%= f.label 'URL' %></td>
+        <td class='col-11' ><%= f.text_field :url, class: 'form-control' %></td>
+      </tr>
+    </table>
+    <%= f.hidden_field :pid, { value: @project.id } %>
+    <%= f.submit 'Register', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<h2>Bulk image registeration using an Excel file</h2>
+<div>
+  <%= form_with model: [:admin, Image.new] do |f| %>
+    <%= f.file_field :excelfile , style: 'margin-bottom: 10px;'%>
+    <%= f.hidden_field :pid, { value: @project.id } %>
+    <br>
+    <%= f.submit 'Register', class: 'btn btn-primary' %>
+  <% end %>
+</div>

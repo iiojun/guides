@@ -1,0 +1,32 @@
+<h1>User <%= @user.fullname %>'s my page</h1>
+<h2>Projects</h2>
+<% if @projects.length > 0 %>
+<p>
+  <table class='table table-sm table-striped'>
+    <tr>
+      <th class='col-1'>ID</th>
+      <th class='col-8'>Project</th>
+      <th class='col-1'>Run</th>
+      <th class='col-1'>Edit</th>
+      <th class='col-1'>Delete</th></tr>
+    <% @projects&.each { |p| %>
+      <tr>
+        <td><%= p.id %></td>
+        <td><%= p.name %></td>
+        <td><%= button_to 'run', intro_project_path(p), 
+                  class: 'btn btn-sm btn-primary',  method: :get  %></td>
+        <td><%= button_to 'edit', edit_admin_project_path(p), 
+                  class: 'btn btn-sm btn-success',  method: :get %></td>
+        <td><%= button_to 'delete', admin_project_path(p),
+                  class: 'btn btn-sm btn-secondary', method: :delete, 
+                  data: { turbo_confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% } %>
+  </table>
+</p>
+<% end %>
+
+<div>
+<%= link_to 'New project', new_admin_project_path, 
+class: 'btn btn-primary'%>
+</div>
