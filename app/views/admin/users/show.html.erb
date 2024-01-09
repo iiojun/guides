@@ -1,29 +1,33 @@
 <h1>User <%= @user.fullname %>'s my page</h1>
 <h2>Projects</h2>
 <% if @projects.length > 0 %>
-<p>
+<div data-controller="admin">
   <table class='table table-sm table-striped'>
     <tr>
       <th class='col-1'>ID</th>
       <th class='col-8'>Project</th>
-      <th class='col-1'>Run</th>
-      <th class='col-1'>Edit</th>
-      <th class='col-1'>Delete</th></tr>
+      <th class='col-3'></th></tr>
     <% @projects&.each { |p| %>
       <tr>
         <td><%= p.id %></td>
         <td><%= p.name %></td>
-        <td><%= button_to 'run', intro_project_path(p), 
-                  class: 'btn btn-sm btn-primary',  method: :get  %></td>
-        <td><%= button_to 'edit', edit_admin_project_path(p), 
-                  class: 'btn btn-sm btn-success',  method: :get %></td>
-        <td><%= button_to 'delete', admin_project_path(p),
-                  class: 'btn btn-sm btn-secondary', method: :delete, 
-                  data: { turbo_confirm: 'Are you sure?' } %></td>
+        <td class="text-end"><%= link_to "#{octicon 'rocket', height: 24,
+                           class: 'right left', 
+                           'aria-label': 'rocket'}".html_safe,
+                  intro_project_path(p), class: 'cursor-pointer' %>
+            <%= link_to "#{octicon 'pencil', height: 24,
+                           class: 'right left', 
+                           'aria-label': 'pencil'}".html_safe,
+                  edit_admin_project_path(p), class: 'cursor-pointer' %>
+            <%= link_to "#{octicon 'trash', height: 24, 
+                           class: 'right left', 
+                           'aria-label': 'trash'}".html_safe,
+                  admin_project_path(p),
+                  class: 'cursor-pointer confirm-delete', method: :delete %></td>
       </tr>
     <% } %>
   </table>
-</p>
+</div>
 <% end %>
 
 <div class="mb-5">

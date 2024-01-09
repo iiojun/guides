@@ -20,19 +20,25 @@
           </div>
           <% if user_signed_in? %>
             <div>
-              <%= link_to 'admin', admin_user_path(current_user),
-                  class: 'btn btn-sm btn-primary cursor-pointer' %>
-              <%= link_to 'profile', edit_user_registration_path,
-                  class: 'btn btn-sm btn-success cursor-pointer' %>
-              <%= link_to 'logout', destroy_user_session_path, method: :delete,
-                  class: 'btn btn-sm btn-danger cursor-pointer' %>
+              <%= link_to "#{octicon 'gear', height: 24, 
+                       class: 'right left', 'aria-label': 'gear'}".html_safe, 
+                     admin_user_path(current_user), class: 'cursor-pointer' %>
+              <%= link_to "#{octicon 'person', height: 24, 
+                       class: 'right left', 'aria-label': 'person'}".html_safe, 
+                     edit_user_registration_path, class: 'cursor-pointer' %>
+              <%= link_to "#{octicon 'sign-out', height: 24, 
+                       class: 'right left', 'aria-label': 'sign-out'}".html_safe, 
+                     destroy_user_session_path, method: :delete,
+                     class: 'cursor-pointer' %>
             </div>
           <% else %>
             <div>
-              <%= link_to 'login', new_user_session_path,
-                  class: 'btn btn-sm btn-primary cursor-pointer' %>
-              <%= link_to 'sign up', new_user_registration_path,
-                  class: 'btn btn-sm btn-success cursor-pointer' %>
+              <%= link_to "#{octicon 'sign-in', height: 24, 
+                       class: 'right left', 'aria-label': 'sign-in'}".html_safe, 
+                     new_user_session_path, class: 'cursor-pointer' %>
+              <%= link_to "#{octicon 'person-add', height: 24, 
+                       class: 'right left', 'aria-label': 'person-add'}".html_safe, 
+                     new_user_registration_path, class: 'cursor-pointer' %>
             </div>
           <% end %>
         </div>

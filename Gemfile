@@ -85,3 +85,5 @@ gem "devise-i18n", "~> 1.12"
 gem "roo", "~> 2.10"
 gem "redcarpet", "~> 3.6"
 gem "rouge", "~> 4.2"
+
+gem "octicons_helper", "~> 19.8"

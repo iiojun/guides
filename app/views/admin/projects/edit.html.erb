@@ -26,15 +26,18 @@
 <h2>Images</h2>
 <% if @images&.length > 0 %>
 <h3>Image list</h3>
-<div>
+<div data-controller="admin">
   <table class='table table-sm table-striped'>
-    <tr><th class='col-11'>URL</th><th class='col-1'>Delete</th></tr>
+    <tr><th class='col-11'>URL</th><th class='col-1'></th></tr>
     <% @images&.each { |i| %>
       <tr>
         <td><%= i.url %></td>
-        <td><%= button_to 'delete', admin_image_path(i),
-                  class: 'btn btn-sm btn-secondary', method: :delete, 
-                  data: { turbo_confirm: 'Are you sure?' } %></td>
+        <td class="text-end">
+            <%= link_to "#{octicon 'trash', height: 24, class: 'right left',
+                           'aria-label': 'trash'}".html_safe,
+                  admin_image_path(i),
+                  class: 'cursor-pointer confirm-delete', 
+                  method: :delete %></td>
       </tr>
     <% } %>
   </table>

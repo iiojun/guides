@@ -151,6 +151,11 @@ GEM
     nio4r (2.7.0)
     nokogiri (1.16.0-arm64-darwin)
       racc (~> 1.4)
+    octicons (19.8.0)
+    octicons_helper (19.8.0)
+      actionview
+      octicons (= 19.8.0)
+      railties
     orm_adapter (0.5.0)
     popper_js (2.11.8)
     psych (5.1.2)
@@ -271,6 +276,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jquery-ui-rails
+  octicons_helper (~> 19.8)
   puma (~> 5.0)
   rails (~> 7.0.6)
   redcarpet (~> 3.6)
