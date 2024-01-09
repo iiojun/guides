@@ -3,7 +3,7 @@
 ## How to set up this system
 Prepare ruby 3.2.2 and rails 7.0.8 with SQLite3 database to implement this system.
 
-You can use the system by following simple steps; 1. git clone, 2. bundle update, and 3. start the server with bin/rails server.
+You can use the system by following simple steps: 1. git clone, 2. bundle update, and 3. start the server with bin/rails server.
 
 ## How to use
 Firstly, register your account using the sign-up function by clicking the 'person-add' icon at the upper right corner.
@@ -12,7 +12,7 @@ After logging in to the system, you can create your project to design your evalu
 When you launch an experiment, six randomly selected images with two sliders appear on the screen.
 The result page shows the differences between your and others' average scores.
 
-I recommend this system running with Apache web server using Phusion Passenger to publish online.
+It would be a good idea to deploy this system on your server running with Apache web server using Phusion Passenger to publish online.
 
 Have fun!
 
