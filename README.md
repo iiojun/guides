@@ -12,6 +12,8 @@ After logging in to the system, you can create your project to design your evalu
 When you launch an experiment, six randomly selected images with two sliders appear on the screen.
 The result page shows the differences between your and others' average scores.
 
+I recommend this system running with Apache web server using Phusion Passenger to publish online.
+
 Have fun!
 
 ## References
