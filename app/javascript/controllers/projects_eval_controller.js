@@ -18,6 +18,17 @@ export default class extends Controller {
                      sessionStorage.setItem("y"+i, ui.value);
                    } });
       }
+
+      $("#submit").on('click', function() {
+          urls = [];
+          for (let i = 0; i < 6; i++) {
+            urls.push($("#image-"+i).attr("src"));
+            sessionStorage.setItem("i"+i, $("#img-"+i).attr("value"));
+          } 
+          sessionStorage.setItem("URLs", JSON.stringify(urls));
+          sessionStorage.setItem("x_label", $("#x_axis-0").text());
+          sessionStorage.setItem("y_label", $("#y_axis-0").text());
+      });
     });
   }
 }

@@ -5,34 +5,27 @@
     <% @images&.each_with_index {|image,i| %>
       <div class="col-12 col-md-6 col-xl-4 mb-3">
         <img src="<%= image.url %>", class="col-12", id="image-<%= i %>" />
-        <%= f.hidden_field "i#{i}", value: image.id %>
-        <script>
-          sessionStorage.setItem("i<%= i %>", <%= image.id %>);
-          urls.push("<%= image.url %>");
-        </script>
+        <%= f.hidden_field "i#{i}", value: image.id, id: "img-#{i}" %>
         <div class="row">
           <div class="col-4 text-left my-2">- ←</div>
-          <div class="col-4 text-center my-2"><%= @project.x_axis %></div>
+          <div class="col-4 text-center my-2" id: "x_axis-<%= i %>">
+            <%= @project.x_axis %></div>
           <div class="col-4 text-end my-2">→ +</div>
         </div>
         <div id="slider-x<%= i %>"></div>
         <%= f.hidden_field "x#{i}", value: 0.0, id: "val-x#{i}" %>
         <div class="row">
           <div class="col-4 text-left my-2">- ←</div>
-          <div class="col-4 text-center my-2"><%= @project.y_axis %></div>
+          <div class="col-4 text-center my-2" id: "y_axis-<%= i %>">
+            <%= @project.y_axis %></div>
           <div class="col-4 text-end my-2">→ +</div>
         </div>
         <div id="slider-y<%= i %>"></div>
         <%= f.hidden_field "y#{i}", value: 0.0, id: "val-y#{i}" %>
       </div>
     <% } %>
-    <script>
-       sessionStorage.setItem("URLs", JSON.stringify(urls));
-       sessionStorage.setItem("x_label", "<%= @project.x_axis %>");
-       sessionStorage.setItem("y_label", "<%= @project.y_axis %>");
-    </script>
     <div class="text-end mb-5">
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <%= f.submit 'Submit', class: 'btn btn-primary', id: 'submit' %>
     </div>
   </div>
 <% end %>

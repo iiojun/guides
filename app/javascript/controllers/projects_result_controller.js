@@ -17,7 +17,7 @@ export default class extends Controller {
 
     var urls = JSON.parse(sessionStorage.getItem("URLs"));
     urls.forEach( (item, i) => {
-      $("#poster"+i).attr('src', item);
+      $("#image"+i).attr('src', item);
     });
 
     // Chart options
@@ -37,7 +37,8 @@ export default class extends Controller {
         },
       plugins: { legend: { display: false, position: 'chartArea' } }
     };
-    var styles = ['circle', 'rect', 'triangle', 'rectRounded', 'rectRot', 'triangle' ];
+    var styles = ['circle', 'rect', 'triangle', 
+                  'rectRounded', 'rectRot', 'triangle' ];
     var rotate = [ 0, 0, 0, 0, 0, 180 ];
 
     $.ajax({
@@ -57,7 +58,6 @@ export default class extends Controller {
         }
         // everybody's data
         data.forEach((item, i) => {
-          console.log(item);
           scatter_data.push({
             data: [{ x: item["x"], y: item["y"] }],
             backgroundColor: 'rgba(255, 48, 32, 0.45)',

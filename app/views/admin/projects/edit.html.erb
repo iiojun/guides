@@ -1,5 +1,5 @@
 <h1>Edit the project</h1>
-<div>
+<div class="mb-3">
 <%= form_with model: [:admin, @project] do |f| %>
   <table class= 'table table-sm table-striped' >
     <tr>
@@ -21,8 +21,8 @@
   </table>
 <%= f.submit 'Update', class: 'btn btn-primary' %>
 <% end %>
-
 </div>
+
 <h2>Images</h2>
 <% if @images&.length > 0 %>
 <h3>Image list</h3>
@@ -44,11 +44,11 @@
 <% end %>
 
 <h2>Add an image</h2>
-<div>
+<div class="mb-3">
   <%= form_with model: [:admin, Image.new] do |f| %>
     <table class= 'table table-sm table-striped' >
       <tr>
-        <td class='col-1' ><%= f.label 'URL' %></td>
+        <th class='col-1' >URL</th>
         <td class='col-11' ><%= f.text_field :url, class: 'form-control' %></td>
       </tr>
     </table>
@@ -58,11 +58,11 @@
 </div>
 
 <h2>Bulk image registeration using an Excel file</h2>
-<div>
+<div class="mb-5">
   <%= form_with model: [:admin, Image.new] do |f| %>
     <%= f.file_field :excelfile , style: 'margin-bottom: 10px;'%>
     <%= f.hidden_field :pid, { value: @project.id } %>
     <br>
-    <%= f.submit 'Register', class: 'btn btn-primary' %>
+    <%= f.submit 'Upload', class: 'btn btn-primary' %>
   <% end %>
 </div>
