@@ -13,10 +13,8 @@
         <div class="row">
           <% @icons.each_with_index {|icon,i| %>
             <div class="col-12 text-center my-1">
-              <%= image_tag icon, width: '24pt',
-                      class: 'mb-1' %><br />
-              <%= image_tag 'placeholder.gif',
-                      class: 'col-12', id: "image#{i}" %>
+              <%= image_tag icon, width: '24pt',　class: 'mb-1' %><br />
+              <%= image_tag 'placeholder.gif', class: 'col-12', id: "image#{i}" %>
             </div>
           <% } %>
         </div>
