@@ -3,5 +3,6 @@
    <%= markdown(@project.description) %>
  </div>
  <div>
-   <a href="eval" class="btn btn-primary">Start evaluation</a>
+   <%= link_to 'Start Evaluation', eval_project_path, 
+         class: 'btn btn-primary' %>
  </div>
