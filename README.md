@@ -1,7 +1,7 @@
 # GUIDES: The General and Universal Image Data Evaluation System
 
 ## Installation
-Prepare ruby 3.2.2 and rails 7.0.8 with SQLite3 database to implement this system.
+Prepare ruby 3.2.2, rails 7.0.8, and bundler 2.4.15 with SQLite3 database to implement this system.
 
 You can use the system by following simple steps: 1. git clone, 2. bundle update, and 3. start the server with bin/rails server.
 
