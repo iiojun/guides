@@ -4,7 +4,7 @@ class Admin::ProjectsController < Admin::ApplicationController
 
   def create
     p = project_params
-    if p[:name] == ''|| p[:description] == ''|| p[:x_axis] == ''|| p[:y_axis]== ''
+    if p[:name] == '' || p[:description] == '' || p[:consent] == ''|| p[:consent2] == '' || p[:x_axis] == '' || p[:y_axis]== ''
       flash[:alert] = 'Every item must be filled in.'
     else
       proj = Project.create(p)
@@ -31,7 +31,7 @@ You have the right to withdraw from the experiment at any time - simply close th
 
   def update
     p = project_params
-    if p[:name] == ''|| p[:description] == ''|| p[:x_axis] == ''|| p[:y_axis]== ''
+    if p[:name] == '' || p[:description] == '' || p[:consent] == ''|| p[:consent2] == '' || p[:x_axis] == '' || p[:y_axis]== ''
       flash[:alert] = 'Every item must be filled in.'
     else
       proj = Project.find(params[:id])
@@ -51,6 +51,6 @@ You have the right to withdraw from the experiment at any time - simply close th
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :x_axis, :y_axis)
+    params.require(:project).permit(:name, :description, :consent, :consent2, :x_axis, :y_axis)
   end
 end
