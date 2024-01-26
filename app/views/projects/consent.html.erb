@@ -2,11 +2,12 @@
 <div>
   <%= @project.consent %>
 </div>
-<div>
+<div class="mb-3">
   <input type="checkbox" id="chk" onchange="if ($('#chk').prop('checked') == true) { $('#proceed').show(); } else { $('#proceed').hide(); }">
     <%= @project.consent2 %>
   </input>
 </div>
-<div id="proceed">
-  <%= link_to 'Start', intro_project_path, class: 'btn btn-primary' %>
+<hr>
+<div id="proceed" class="mb-3">
+  <%= link_to 'Start', intro_project_path, class: 'btn btn-primary', style: 'display: None;' %>
 </div>
