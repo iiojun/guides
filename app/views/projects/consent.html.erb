@@ -5,7 +5,7 @@
 <hr>
 <div class="mb-3">
   <input type="checkbox" id="chk" onchange="if ($('#chk').prop('checked') == true) { $('#proceed').show(); } else { $('#proceed').hide(); }">
-    <%= markdown(@project.consent2) %>
+    <%= @project.consent2 %>
   </input>
 </div>
 <div id="proceed" class="mb-3" style="display: none;">
