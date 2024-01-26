@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: [ :index ] do
     member do
+      get :consent
       get :intro
       get :eval
       get :result
