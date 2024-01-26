@@ -3,6 +3,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def consent
+    @project = Project.find(params[:id])
+  end
+
   def intro
     @project = Project.find(params[:id])
   end
