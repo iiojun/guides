@@ -16,12 +16,12 @@
             <%= link_to "#{octicon 'rocket', height: 24,
                            class: 'right left', 
                            'aria-label': 'rocket'}".html_safe,
-                  consent_project_path(p), class: 'cursor-pointer' %>
+                  intro_project_path(p), class: 'cursor-pointer' %>
           <% else %>
             <%= link_to "#{octicon 'rocket', height: 24,
                            class: 'right left', 
                            'aria-label': 'rocket'}".html_safe,
-                  intro_project_path(p), class: 'cursor-pointer' %>
+                  consent_project_path(p), class: 'cursor-pointer' %>
           <% end %>
             <%= link_to "#{octicon 'pencil', height: 24,
                            class: 'right left', 
