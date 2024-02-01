@@ -11,10 +11,18 @@
       <tr>
         <td><%= p.id %></td>
         <td><%= p.name %></td>
-        <td class="text-end"><%= link_to "#{octicon 'rocket', height: 24,
+        <td class="text-end">
+          <% if (p.consent == nil || p.consent == "") || (p.consent2 == nil || p.consent == "") %>
+            <%= link_to "#{octicon 'rocket', height: 24,
                            class: 'right left', 
                            'aria-label': 'rocket'}".html_safe,
                   consent_project_path(p), class: 'cursor-pointer' %>
+          <% else %>
+            <%= link_to "#{octicon 'rocket', height: 24,
+                           class: 'right left', 
+                           'aria-label': 'rocket'}".html_safe,
+                  intro_project_path(p), class: 'cursor-pointer' %>
+          <% end %>
             <%= link_to "#{octicon 'pencil', height: 24,
                            class: 'right left', 
                            'aria-label': 'pencil'}".html_safe,
