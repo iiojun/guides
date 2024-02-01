@@ -1,6 +1,10 @@
 <h1>Project list</h1>
 <ul>
   <% @projects&.each { |p| %>
-    <li><%= (p.consent != nil) ? link_to p.name, consent_project_path(p) : link_to p.name, intro_project_path(p) %> &nbsp; (by <%= p.user.fullname %>, <%= p.created_at %>)</li>
+    <li><% if p.consent != nil || p.consent != "" %>
+          <%= link_to p.name, consent_project_path(p) %>
+        <% else %>
+          <%= link_to p.name, intro_project_path(p) %>
+        <% end %> &nbsp; (by <%= p.user.fullname %>, <%= p.created_at %>)</li>
   <% } %>
 </ul>
