@@ -17,4 +17,4 @@ It would be a good idea to deploy this system on your server running with Apache
 Have fun!
 
 ## References
-1. Hanagaki, T. and Iio, J., [Emotional Evaluation of Movie Posters](https://www.esociety-conf.org/wp-content/uploads/2023/03/2_ES2023_S_046_Hanagaki.pdf), *The 21st International Conference on e-Society (ES2023),* pp. 428-431, Lisbon, Portugal, (2023).
+1. Hanagaki, T. and Iio, J., (2023) [Emotional Evaluation of Movie Posters](https://www.esociety-conf.org/wp-content/uploads/2023/03/2_ES2023_S_046_Hanagaki.pdf), *The 21st International Conference on e-Society (ES2023),* pp. 428-431, Lisbon, Portugal.
