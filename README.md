@@ -3,7 +3,7 @@
 ## Installation
 Prepare ruby 3.2.2, rails 7.0.8, and bundler 2.4.15 with SQLite3 database to implement this system.
 
-You can use the system by following simple steps: 1. git clone, 2. bundle update, and 3. start the server with bin/rails server.
+You can use the system by following simple steps: 1. git clone, 2. bundle update, 3. create a database and execute the database migration by using bin/rails db:create; bin/rails db:migrate, 4. add 'config.hosts << "__your domain__"' to config/environments/development.rb and 5. start the server with bin/rails server.
 
 ## How to use
 Firstly, register your account using the sign-up function by clicking the 'person-add' icon at the upper right corner.
