@@ -6,17 +6,23 @@ export default class extends Controller {
     $(function() {
       for (let i = 0; i < 6; i++) {
         sessionStorage.setItem("x"+i, 0.0);
-        $("#slider-x"+i).slider({ min:-1.0, max:1.0, step:0.01, value:0.0,
-            slide: function(event, ui) {
-                     $("#val-x"+i).attr("value", ui.value);
-                     sessionStorage.setItem("x"+i, ui.value);
-                   } });
+        new rSlider({
+               target: "#slider-x"+i, range: false,
+               values: {min: -1.0, max: 1.0}, step:0.01, set: [0.0],
+               labels: false, tooltip: false, scale: null,
+               onChange: function(val) {
+                      $("#val-x"+i).attr("value", val);
+                      sessionStorage.setItem("x"+i, val);
+                    } });
         sessionStorage.setItem("y"+i, 0.0);
-        $("#slider-y"+i).slider({ min:-1.0, max:1.0, step:0.01, value:0.0,
-            slide: function(event, ui) {
-                     $("#val-y"+i).attr("value", ui.value);
-                     sessionStorage.setItem("y"+i, ui.value);
-                   } });
+        new rSlider({
+               target: "#slider-y"+i, range: false,
+               values: {min: -1.0, max: 1.0}, step:0.01, set: [0.0],
+               labels: false, tooltip: false, scale: null,
+               onChange: function(val) {
+                      $("#val-y"+i).attr("value", val);
+                      sessionStorage.setItem("y"+i, val);
+                    } });
       }
 
       $("#submit").on('click', function() {

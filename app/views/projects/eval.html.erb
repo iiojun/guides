@@ -12,7 +12,7 @@
             <%= @project.x_axis %></div>
           <div class="col-4 text-end my-2">→ +</div>
         </div>
-        <div id="slider-x<%= i %>"></div>
+        <input type="text" id="slider-x<%= i %>" class="slider"></input>
         <%= f.hidden_field "x#{i}", value: 0.0, id: "val-x#{i}" %>
         <div class="row">
           <div class="col-4 text-left my-2">- ←</div>
@@ -20,7 +20,7 @@
             <%= @project.y_axis %></div>
           <div class="col-4 text-end my-2">→ +</div>
         </div>
-        <div id="slider-y<%= i %>"></div>
+        <input type="text" id="slider-y<%= i %>" class="slider"></input>
         <%= f.hidden_field "y#{i}", value: 0.0, id: "val-y#{i}" %>
       </div>
     <% } %>
