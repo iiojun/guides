@@ -4,10 +4,10 @@
 </div>
 <hr>
 <div class="mb-3">
-  <input type="checkbox" id="chk" onchange="if ($('#chk').prop('checked') == true) { $('#proceed').show(); } else { $('#proceed').hide(); }">
+  <input type="checkbox" id="chk" onchange="if ($('#chk').prop('checked') == true) { $('#proceed').removeAttr('disabled'); $('#proceed').attr('class', 'btn btn-primary'); } else { $('#proceed').attr('disabled', true); $('#proceed').attr('class', 'btn btn-secondary'); }">
     <%= @project.consent2 %>
   </input>
 </div>
-<div id="proceed" class="mb-3" style="display: none;">
-  <%= link_to 'Start', intro_project_path, class: 'btn btn-primary' %>
+<div class="mb-3">
+  <%= button_to 'Start', intro_project_path, class: 'btn btn-secondary', method: :get, disabled: true, id: 'proceed' %>
 </div>
